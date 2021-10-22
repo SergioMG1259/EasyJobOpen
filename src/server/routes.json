@@ -1,0 +1,4 @@
+{
+  "/api/v1/*": "/$1",
+  "/Applications?id_postulant=:id":"/Postulants/:id"
+}

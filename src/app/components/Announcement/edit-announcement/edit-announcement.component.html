@@ -1,0 +1,54 @@
+<mat-dialog-content class="contain">
+  <h1>Agregar anuncio</h1>
+  <h3>Titulo:</h3>
+  <input matInput type="text"  [(ngModel)]="title_edit" />
+  <h3>Descripción:</h3>
+  <textarea matInput  [(ngModel)]="description_edit"></textarea>
+  <mat-form-field appearance="fill">
+    <mat-label>Especialidad</mat-label>
+    <mat-select [(value)]="specialty_selected">
+      <mat-option *ngFor="let specialty of specialties" [value]="specialty">
+        {{specialty}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Experiencia: </mat-label>
+    <mat-select [(value)]="experiences_selected">
+      <mat-option *ngFor="let experience of experiences" [value]="experience">
+        {{experience}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <h3>Salario:</h3>
+  <input matInput type="text"  [(ngModel)]="salary_edit" />
+
+  <mat-form-field appearance="fill">
+    <mat-label>Tipo de moneda: </mat-label>
+    <mat-select [(value)]="type_money_selected">
+      <mat-option *ngFor="let type_money of types_money" [value]="type_money">
+        {{type_money}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-slide-toggle [(ngModel)]="visible_edit">Visible</mat-slide-toggle>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button  mat-dialog-close>Cerrar</button>
+  <button mat-dialog-close (click)="edit_announcement()">Editar</button>
+</mat-dialog-actions>
+
+<style>
+  .contain{
+    width: 250px;
+  }
+  .input-container{
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+  }
+</style>

@@ -1,0 +1,33 @@
+<input type="text" [(ngModel)]="search" (input)="Search()">
+<div class="scroll">
+  <div *ngFor="let postulant of all_postulants">
+    <mat-card class="card-an" >
+      <img src="{{postulant.img_postulant}}" width="20%" height="100%">
+      <mat-card-title>{{postulant.name+" "+postulant.lastname}}</mat-card-title>
+
+      <mat-dialog-content>
+        {{postulant.myspecialty+" | "+postulant.myexperience}}
+      </mat-dialog-content>
+      <div>
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="visit_profile(postulant.id)">Ir a su perfil</button>
+        </mat-dialog-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<style>
+  .announcement{
+    text-align: center;
+  }
+  .scroll{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-y: scroll;
+  }
+  .card-an{
+    margin-bottom: 20px;
+    border: solid 1px purple;
+    border-radius: 10px;
+  }
+</style>

@@ -1,0 +1,275 @@
+{
+  "Postulants": [
+    {
+      "id": 1,
+      "name": "Alejandro",
+      "lastname": "Pizarro",
+      "email": "sergiogg1259@gmail.com",
+      "password": "123456789",
+      "myspecialty": "Programación",
+      "myexperience": "Junior",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, turpis at facilisis bibendum, nulla urna vestibulum massa, sed blandit dolor orci eu ex. Aenean quam arcu, efficitur a vestibulum eget, ultrices in velit. Ut vitae urna porta, auctor sapien eget, lobortis ipsum. Curabitur in eros mattis, dignissim urna eu, hendrerit neque. Pellentesque ultrices auctor mi nec facilisis. Maecenas vel dictum ante. Aenean in massa fermentum, venenatis elit ut, commodo lacus. Morbi efficitur laoreet mauris. Suspendisse potenti.",
+      "namegithub": "sergiomg1259",
+      "img_postulant": "https://enlinea.santotomas.cl/wp-content/uploads/sites/2/2018/03/vu-700x465.png"
+    },
+    {
+      "id": 2,
+      "name": "Carlos",
+      "lastname": "Romero",
+      "email": "carlos1259@gmail.com",
+      "password": "123456789carlos",
+      "myspecialty": "Ux design",
+      "myexperience": "Senior",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, turpis at facilisis bibendum, nulla urna vestibulum massa, sed blandit dolor orci eu ex. Aenean quam arcu, efficitur a vestibulum eget, ultrices in velit. Ut vitae urna porta, auctor sapien eget, lobortis ipsum. Curabitur in eros mattis, dignissim urna eu, hendrerit neque. Pellentesque ultrices auctor mi nec facilisis. Maecenas vel dictum ante. Aenean in massa fermentum, venenatis elit ut, commodo lacus. Morbi efficitur laoreet mauris. Suspendisse potenti.565656",
+      "namegithub": "symphony701",
+      "img_postulant": "https://residenciauniversitariacartuja.es/wp-content/uploads/2017/04/Consejos-nuevos-estudiantes-universitarios.jpg"
+    }
+  ],
+  "Projects": [
+    {
+      "id": 1,
+      "title": "Call of duty Mobile",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, turpis at facilisis bibendum, nulla urna vestibulum massa, sed blandit dolor orci eu ex. Aenean quam arcu, efficitur a vestibulum eget, ultrices in velit. Ut vitae urna porta, auctor sapien eget, lobortis ipsum. Curabitur in eros mattis, dignissim urna eu, hendrerit neque. Pellentesque ultrices auctor mi nec facilisis. Maecenas vel dictum ante. Aenean in massa fermentum, venenatis elit ut, commodo lacus. Morbi efficitur laoreet mauris. Suspendisse potenti.565656",
+      "id_postulant": "1",
+      "linktogithub": "https://github.com/SergioMG1259/aplicacionesweb",
+      "img_project": "https://i.blogs.es/f307c9/mob0/1366_2000.jpeg"
+    },
+    {
+      "id": 2,
+      "title": " Battlefield 4",
+      "description": " Jueguito chevere",
+      "id_postulant": "1",
+      "linktogithub": "https://github.com/SergioMG1259/aplicacionesweb",
+      "img_project": "https://m.media-amazon.com/images/S/aplus-media/sota/e66cb100-e904-4f6b-beef-987c502a6b30.__CR0,0,970,600_PT0_SX970_V1___.jpg"
+    },
+    {
+      "id": 3,
+      "title": " Minecraft",
+      "description": " cubitos pro",
+      "id_postulant": "2",
+      "linktogithub": "https://github.com/symphony701/IHC-Trabajo",
+      "img_project": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2021/07/minecraft-2397153.jpg"
+    }
+  ],
+  "Evidences": [
+    {
+      "id": 3,
+      "title_evidence": "fafs",
+      "description_evidence": "vvrgegt",
+      "img_evidence": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_KnBjPue4BIeqC8rYxIdfdHFS6-Mo2gtjg&usqp=CAU",
+      "id_project": "1"
+    },
+    {
+      "id": 4,
+      "title_evidence": "Evidencia 1",
+      "description_evidence": "Buen juego",
+      "img_evidence": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9RcQ2qWjW9R3I2rGruRQVriofnHMCFFa2CA&usqp=CAU",
+      "id_project": "2"
+    }
+  ],
+  "Companies": [
+    {
+      "id": 1,
+      "name_company": "Facebook",
+      "email": "facebook@gmail.com",
+      "password": "123456789",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, turpis at facilisis bibendum, nulla urna vestibulum massa, sed blandit dolor orci eu ex. Aenean quam arcu, efficitur a vestibulum eget, ultrices in velit. Ut vitae urna porta, auctor sapien eget, lobortis ipsum. Curabitur in eros mattis, dignissim urna eu, hendrerit neque. Pellentesque ultrices auctor mi nec facilisis. Maecenas vel dictum ante. Aenean in massa fermentum, venenatis elit ut, commodo lacus. Morbi efficitur laoreet mauris. Suspendisse potenti.",
+      "img_company": "https://1000marcas.net/wp-content/uploads/2019/12/Facebook-logo.png"
+    }
+  ],
+  "Announcements": [
+    {
+      "id": 1,
+      "title": "Se necesita especialista en ciencia de datos",
+      "description": "lorem",
+      "required_specialty": "Ciencia de datos",
+      "required_experience": "Senior",
+      "salary": "1200",
+      "type_money": "USD",
+      "visible": false,
+      "date": "11/15/2021",
+      "id_company": "1"
+    },
+    {
+      "id": 2,
+      "title": "Se necesita profesional en diseño grafico",
+      "description": "lorem",
+      "required_specialty": "Diseño gráfico",
+      "required_experience": "Semi-Senior",
+      "salary": "1200",
+      "type_money": "PEN",
+      "visible": true,
+      "date": "11/15/2021",
+      "id_company": "1"
+    },
+    {
+      "id": 3,
+      "title": "Se necesita profesional en Ux design",
+      "description": "lorem ipsum",
+      "required_specialty": "Ux design",
+      "required_experience": "Senior",
+      "salary": "2500",
+      "type_money": "PEN",
+      "visible": true,
+      "date": "11/15/2021",
+      "id_company": "1"
+    },
+    {
+      "id": 4,
+      "title": "Se necesita practicante en ciencia de datos",
+      "description": "buen trabajo",
+      "required_specialty": "Ciencia de datos",
+      "required_experience": "Practicante",
+      "salary": "1800",
+      "type_money": "PEN",
+      "visible": true,
+      "date": "11/15/2021",
+      "id_company": "1"
+    }
+  ],
+  "Applications": [
+    {
+      "id": 4,
+      "id_announcement": "3",
+      "id_postulant": "2"
+    },
+    {
+      "id": 5,
+      "id_announcement": "4",
+      "id_postulant": "1"
+    },
+    {
+      "id": 6,
+      "id_announcement": "4",
+      "id_postulant": "2"
+    }
+  ],
+  "Notifications": [
+    {
+      "id": 1,
+      "id_company": "1",
+      "id_postulant": "1",
+      "id_announcement": "3",
+      "title_announcement": "Se necesita profesional en Ux design",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 2,
+      "id_company": "1",
+      "id_postulant": "1",
+      "id_announcement": "2",
+      "title_announcement": "Se necesita profesional en diseño grafico",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 3,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "2",
+      "title_announcement": "Se necesita profesional en diseño grafico",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 4,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "2",
+      "title_announcement": "Se necesita profesional en diseño grafico",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 5,
+      "id_company": "1",
+      "id_postulant": 2,
+      "id_announcement": 2,
+      "title_announcement": "Se necesita profesional en diseño grafico",
+      "type": "declined",
+      "feedback": "mejorar"
+    },
+    {
+      "id": 6,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "3",
+      "title_announcement": "Se necesita profesional en Ux design",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 7,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "2",
+      "title_announcement": "Se necesita profesional en diseño grafico",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 8,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "3",
+      "title_announcement": "Se necesita profesional en Ux design",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 9,
+      "id_company": "1",
+      "id_postulant": 1,
+      "id_announcement": 2,
+      "title_announcement": "Se necesita profesional en diseño grafico",
+      "type": "declined",
+      "feedback": "aber"
+    },
+    {
+      "id": 10,
+      "id_company": "1",
+      "id_postulant": 1,
+      "id_announcement": 3,
+      "title_announcement": "Se necesita profesional en Ux design",
+      "type": "declined",
+      "feedback": "no"
+    },
+    {
+      "id": 11,
+      "id_company": "1",
+      "id_postulant": "1",
+      "id_announcement": "4",
+      "title_announcement": "nito",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 12,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "4",
+      "title_announcement": "nito",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 13,
+      "id_company": "1",
+      "id_postulant": "1",
+      "id_announcement": "4",
+      "title_announcement": "Se necesita practicante en ciencia de datos",
+      "type": "new-postulant",
+      "feedback": ""
+    },
+    {
+      "id": 14,
+      "id_company": "1",
+      "id_postulant": "2",
+      "id_announcement": "4",
+      "title_announcement": "Se necesita practicante en ciencia de datos",
+      "type": "new-postulant",
+      "feedback": ""
+    }
+  ]
+}

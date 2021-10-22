@@ -1,0 +1,21 @@
+<mat-dialog-content class="contain">
+  <h1>Editar perfil</h1>
+  <input matInput type="text"  [(ngModel)]="name_edit" />
+  <input matInput type="text"  [(ngModel)]="img_edit" />
+  <textarea matInput  [(ngModel)]="description_edit"></textarea>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button  mat-dialog-close>Cerrar</button>
+  <button mat-dialog-close (click)="edit_profile()">Guardar</button>
+</mat-dialog-actions>
+<style>
+  .contain{
+    width: 250px;
+  }
+  .input-container{
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+  }
+</style>
+

@@ -1,0 +1,52 @@
+.page-container {
+  height: 100%;
+  background: #fafafa;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+.title-Menu {
+  color: inherit;
+  text-decoration: none;
+}
+header {
+  background: purple;
+  color: #fff;
+  padding: 18px 24px;
+
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.menu-button {
+  margin-right: 24px;
+  min-width: 0;
+  padding: 0;
+  line-height: normal;
+}
+.app-title {
+  padding: 0 3px;
+}
+.sidenav-container {
+  flex: 1;
+
+}
+.sidenav {
+  min-width: 240px;
+
+}
+.options {
+  display: block;
+  padding: 6px 24px;
+  width: 100%;
+  text-align: left;
+}
+
+main {
+  padding: 18px 24px;
+}
+.body{
+  background: white;
+  color: black;
+}

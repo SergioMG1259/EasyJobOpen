@@ -1,0 +1,29 @@
+<h1>Mis notificaciones</h1>
+<div class="scroll">
+  <div *ngFor="let notification of notifications_company; let i = index">
+    <mat-card class="card-an">
+      <mat-card-title>Tiene un nuevo postulante</mat-card-title>
+      <mat-dialog-content>
+        Su anuncio {{notification.title_announcement}} tiene un nuevo postulante
+      </mat-dialog-content>
+      <div>
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="view_announcement(notification.id)">Ver mas</button>
+        </mat-dialog-actions>
+      </div>
+    </mat-card>
+  </div>
+
+</div>
+<style>
+  .scroll{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-y: scroll;
+  }
+  .card-an{
+    margin-bottom: 20px;
+    border: solid 1px purple;
+    border-radius: 10px;
+  }
+</style>

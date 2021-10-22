@@ -1,0 +1,56 @@
+<div>
+  <h1>Mi anuncio</h1>
+  <button mat-raised-button (click)="Open_dialog_edit_announcement()">Editar</button>
+  <button mat-raised-button (click)="delete_announcement()">Eliminar</button>
+  <mat-grid-list cols="1" >
+    <div class="announcement">
+      <h2>{{title_announcement}}</h2>
+      <div>
+        <h4>{{specialty+" | "+experience}}</h4>
+      </div>
+      <div>
+        <h4>{{date_announcement}}</h4>
+      </div>
+    </div>
+    <div>
+      <h4>{{salary+" "+type_money_salary}}</h4>
+    </div>
+    <p>
+      {{description_announcement}}
+    </p>
+    <div class="scroll">
+      <div *ngFor="let postulant of postulants_in_announcement">
+        <mat-card class="card-an" >
+          <img src="{{postulant.img_postulant}}" width="20%" height="100%">
+          <mat-card-title>{{postulant.name+" "+postulant.lastname}}</mat-card-title>
+
+          <mat-dialog-content>
+            {{postulant.myspecialty+" | "+postulant.myexperience}}
+          </mat-dialog-content>
+          <div>
+            <mat-dialog-actions>
+              <button mat-raised-button (click)="visit_profile(postulant.id)">Ir a su perfil</button>
+              <button mat-raised-button>Aceptar</button>
+              <button mat-raised-button (click)="Open_dialog_write_feedback(postulant.id)">Declinar</button>
+            </mat-dialog-actions>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </mat-grid-list>
+</div>
+<style>
+  .announcement{
+    text-align: center;
+  }
+  .scroll{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-y: scroll;
+  }
+  .card-an{
+    margin-bottom: 20px;
+    border: solid 1px purple;
+    border-radius: 10px;
+  }
+</style>

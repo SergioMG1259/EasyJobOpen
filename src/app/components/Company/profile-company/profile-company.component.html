@@ -1,0 +1,18 @@
+<div>
+  <h1>Mi perfil</h1>
+  <h1 class="name">{{name_company}}</h1>
+  <button mat-raised-button (click)="Open_dialog_edit()">Editar</button>
+  <mat-grid-list cols="4"rowHeight="4pc" >
+
+    <mat-grid-tile  rowspan="5" colspan="2">
+      <img src="{{img_company}}" width="400px" height="250px">
+    </mat-grid-tile>
+    <mat-grid-tile  rowspan="3" colspan="2">
+      <p>
+        {{description_company}}
+      </p>
+
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

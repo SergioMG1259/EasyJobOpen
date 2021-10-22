@@ -1,0 +1,19 @@
+<mat-dialog-content class="contain">
+  <h1>Feedback:</h1>
+  <textarea matInput  [(ngModel)]="feedback"></textarea>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button  mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>
+
+<style>
+  .contain{
+    width: 250px;
+  }
+  .input-container{
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+  }
+</style>

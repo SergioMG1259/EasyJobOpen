@@ -1,0 +1,26 @@
+<div>
+  <h1>Anuncio</h1>
+  <mat-grid-list cols="1" >
+    <div class="announcement">
+      <h2>{{title_announcement}}</h2>
+      <div>
+        <h4>{{specialty+" | "+experience}}</h4>
+      </div>
+      <div>
+        <h4>{{date_announcement}}</h4>
+      </div>
+    </div>
+    <div>
+      <h4>{{salary+" "+type_money_salary}}</h4>
+    </div>
+    <p>
+      {{description_announcement}}
+    </p>
+    <button mat-raised-button (click)="postulate()">{{action}}</button>
+  </mat-grid-list>
+</div>
+<style>
+  .announcement{
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,35 @@
+<div class="page-container">
+  <header>
+    <div>
+      <button mat-button class="menu-button" (click)="sidenav.toggle()">
+        <mat-icon>{{ isMenuOpen ? 'menu_open' : 'menu' }}</mat-icon>
+      </button>
+
+      <a class="title-Menu" routerLink="/">
+        <span class="app-title">Hamburger Menu Demo</span>
+      </a>
+    </div>
+
+  </header>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav  #sidenav
+                  autoFocus="false"
+                  mode="over"
+                  [(opened)]="isMenuOpen"
+                  class="sidenav"
+                  (click)="onSidenavClick()">
+      <a class="options" mat-button routerLink="/MenuPostulant/Initiation/Postulant/1">Inicio</a>
+      <a class="options" mat-button routerLink="/MenuPostulant/ProfilePostulant/1">Perfil</a>
+      <a class="options" mat-button routerLink="/MenuPostulant/NotificationsPostulant/1">Notificaciones</a>
+      <a class="options" mat-button>Mensajes</a>
+      <a class="options" mat-button routerLink="/MenuPostulant/Practicing_search/Postulant/1">Para practicantes </a>
+      <a class="options" mat-button>Premium</a>
+      <a class="options" mat-button routerLink="/">Salir</a>
+    </mat-sidenav>
+    <mat-sidenav-content class="body">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

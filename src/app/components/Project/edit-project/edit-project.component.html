@@ -1,0 +1,24 @@
+<mat-dialog-content class="contain">
+  <h1>Editar Proyecto</h1>
+  <h3>Titulo:</h3>
+  <input matInput type="text"  [(ngModel)]="title_edit" />
+  <h3>Imagen:</h3>
+  <input matInput type="text"  [(ngModel)]="img_edit" />
+  <h3>Descripción:</h3>
+  <textarea matInput  [(ngModel)]="description_edit"></textarea>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button  mat-dialog-close>Cerrar</button>
+  <button mat-dialog-close (click)="edit_project()">Editar</button>
+</mat-dialog-actions>
+<style>
+  .contain{
+    width: 250px;
+  }
+  .input-container{
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+  }
+</style>

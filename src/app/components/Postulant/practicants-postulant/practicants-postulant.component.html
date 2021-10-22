@@ -1,1 +1,32 @@
+<input type="text" [(ngModel)]="search" (input)="Search_announcement()">
+<div class="scroll">
+  <div *ngFor="let announcement of announcements">
+    <mat-card class="card-an" >
+      <mat-card-title>{{announcement.title}}</mat-card-title>
+      <mat-dialog-content>
+        {{announcement.required_specialty+" | "+announcement.required_experience}}
+        <div>
+          {{announcement.date}}
+        </div>
+      </mat-dialog-content>
+      <div>
+        <mat-dialog-actions>
+          <button mat-raised-button (click)="view_announcement(announcement.id)">Ver mas</button>
+        </mat-dialog-actions>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<style>
+  .scroll{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-y: scroll;
+  }
+  .card-an{
+    margin-bottom: 20px;
+    border: solid 1px purple;
+    border-radius: 10px;
+  }
+</style>
 

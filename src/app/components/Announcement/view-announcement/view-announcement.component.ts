@@ -54,7 +54,40 @@ export class ViewAnnouncementComponent implements OnInit {
       this.id_company=this.data_announcement.id_company
     })
   }
-  
+    get_postulans(){
+    let list_applications_in_announcements:any
+    this.applicationservices.get_applications_by_announcement(this.id_announcement).subscribe(response=>{
+      list_applications_in_announcements=response
+      for(let i=0;i<list_applications_in_announcements.length;i++){
+        this.applicationservices.get_postulants_in_announcement(list_applications_in_announcements[i].id_postulant).subscribe(response=>{
+          let data=response
+          this.postulants_in_announcement.push(data)
+        })
+      }
+    })
+  }
+  Open_dialog_edit_announcement(){
+    const dialogRef=this.dialog.open(EditAnnouncementComponent,{data:this.data_announcement})
+  }
+  goToItems(){
+    this.router.navigate(['/MenuCompany/Initiation/Company',this.id_company])
+  }
+  delete_all_postulant(){
+    let postulants_to_delete:any
+    this.applicationservices.get_applications_by_announcement(this.id_announcement).subscribe(response=>{
+      postulants_to_delete=response
+      for(let i=0;i<postulants_to_delete.length;i++){
+        this.applicationservices.deleteApplication(postulants_to_delete[i].id).subscribe(response=>{
+        })
+      }
+    })
+  }
+  delete_announcement(){
+    this.goToItems()
+    this.delete_all_postulant()
+    this.announcementsservices.DeleteAnnouncement(this.id_announcement).subscribe(response=>{
+    })
+  }
   visit_profile(id:number){
     this.router.navigate(['/MenuCompany/Visit-ProfilePostulant',id])
   }

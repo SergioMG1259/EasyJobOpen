@@ -1,10 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
-import {Router} from "@angular/router";
-import {Announcement} from "../../Announcement/model/announcement";
-import {AnnouncementServices} from "../../Services/Announcement-services";
-import {ApplicationServices} from "../../Services/Application-services";
-import {NotificationServices} from "../../Services/Notification-services";
+
 
 @Component({
   selector: 'app-view-announcement-application',

@@ -1,6 +1,7 @@
 <div>
-  <h1>Perfil de:</h1>
+  <h1>Profile of:</h1>
   <h1 class="name">{{name_postulant+" "+lastname_postulant}}</h1>
+  <button mat-raised-button (click)="Open_dialog_invitation()">Invite</button>
   <mat-grid-list cols="4"rowHeight="4pc" >
 
     <mat-grid-tile  rowspan="5" colspan="2">
@@ -12,22 +13,28 @@
       </p>
 
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-      <div class="skills">
-        <button mat-raised-button disabled>{{specialty}}</button>
-        <button mat-raised-button disabled>{{experience}}</button>
-      </div>
-    </mat-grid-tile>
+    <div>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <h1>Specialties and experience</h1>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1" *ngFor="let specialtyexp of specialtyexperience; let i = index">
+        <div class="skills" >
+          <button mat-raised-button >{{specialtyexp.specialty}}</button>
+          <button mat-raised-button >{{specialtyexp.experience}}</button>
+        </div>
+      </mat-grid-tile>
+
+    </div>
   </mat-grid-list>
 
   <mat-grid-list cols="4">
-    <h1>Proyectos</h1>
+    <h1>Projects</h1>
     <mat-grid-tile colspan="2" *ngFor="let project of projects; let i = index">
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title>{{project.title}}</mat-card-title>
         </mat-card-header>
-        <img src="{{project.img_project}}" width="100%" height="100%" (click)="gotoItems(project.id)">
+        <img src="{{project.imgProject}}" width="100%" height="100%" (click)="gotoItems(project.id)">
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
@@ -38,4 +45,3 @@
     min-height: 200px;
   }
 </style>
-

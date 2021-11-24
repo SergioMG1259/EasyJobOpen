@@ -27,6 +27,7 @@ export class ViewAnnouncementApplicationComponent implements OnInit {
   postulating:boolean
   action:string
   id_delete:number
+  accepted_bool:boolean
   constructor(private route:ActivatedRoute,private router:Router,
   private announcementsservices:AnnouncementServices,private applicationservices:ApplicationServices,
              private notificationservices:NotificationServices) {
@@ -44,6 +45,7 @@ export class ViewAnnouncementApplicationComponent implements OnInit {
     this.action="Postular"
     this.id_application_add=1
     this.id_delete=0
+    this.accepted_bool=false
   }
   get_announcement(){
     this.announcementsservices.get_announcement_by_id(this.id_announcement).subscribe(response=>{
@@ -51,57 +53,58 @@ export class ViewAnnouncementApplicationComponent implements OnInit {
       data=response
       this.title_announcement=data.title
       this.description_announcement=data.description
-      this.specialty=data.required_specialty
-      this.experience=data.required_experience
+      this.specialty=data.requiredSpecialty
+      this.experience=data.requiredExperience
       this.salary=data.salary
-      this.type_money_salary=data.type_money
+      this.type_money_salary=data.typeMoney
       this.date_announcement=data.date
-      this.id_company=data.id_company
+      this.id_company=data.companyId
     })
   }
-  add_notification(id:number){
+  add_notification(){
     const data={
-      id:id,
-      id_company:this.id_company,
-      id_postulant:this.id_postulant,
-      id_announcement:this.id_announcement,
-      title_announcement:this.title_announcement,
+      titleAnnouncement:this.title_announcement,
       type:"new-postulant",
       feedback:""
     }
-    this.notificationservices.add_notification(data).subscribe(response=>{})
+    this.notificationservices.add_notification(this.id_company,this.id_announcement,this.id_postulant,data).subscribe(response=>{
+      console.log(response)
+    })
   }
   add_notification_to_company(){
-    let id_add_notification=1
+    /*let id_add_notification=1
     let list_notifications:any
     this.notificationservices.getAll().subscribe(response=>{
       list_notifications=response
       if(list_notifications.length>0){
         id_add_notification=list_notifications[list_notifications.length-1].id+1
-      }
-      this.add_notification(id_add_notification)
-    })
+      }*/
+      this.add_notification()
+   // })
   }
   add(){
     const data={
-      id:this.id_application_add,
-      id_announcement:this.id_announcement,
-      id_postulant:this.id_postulant
+      //id:this.id_application_add,
+      //id_announcement:this.id_announcement,
+     // id_postulant:this.id_postulant,
+      status:"pending"
     }
-    this.id_delete=this.id_application_add,
-      this.applicationservices.add_application(data).subscribe(response=>{
+
+      this.applicationservices.add_application(this.id_announcement,this.id_postulant,data).subscribe(response=>{
         console.log(response)
+        this.id_delete=response.id
+        console.log(this.id_delete)
       })
   }
   add_application(){
-    let applications:any
+    /*let applications:any
     this.applicationservices.getAll().subscribe(response=>{
       applications=response
       if(applications.length>0){
         this.id_application_add=applications[applications.length-1].id+1
-      }
+      }*/
       this.add()
-    })
+    //})
   }
   delete_application(){
     this.applicationservices.deleteApplication(this.id_delete).subscribe(response=>{
@@ -111,24 +114,28 @@ export class ViewAnnouncementApplicationComponent implements OnInit {
   check_application(){
     let get_applications:any
     this.applicationservices.get_applications_by_announcement(this.id_announcement).subscribe(response=>{
-      get_applications=response
+      get_applications=response.content
       for(let i=0;i<get_applications.length;i++){
-        if(get_applications[i].id_postulant==this.id_postulant){
+        if(get_applications[i].postulantId==this.id_postulant){
+          if(get_applications[i].status=="accepted"){
+            this.accepted_bool=true
+          }
           this.id_delete=get_applications[i].id
-          return this.action="Cancelar",this.postulating=true
+          console.log(this.id_delete)
+          return this.action="Cancel",this.postulating=true
         }
       }
-      return this.action="Postular",this.postulating=false
+      return this.action="Apply",this.postulating=false
     })
   }
   postulate(){
     if(this.postulating){
-      this.action="Postular"
+      this.action="Apply"
       this.postulating=false
       this.delete_application()
     }
     else{
-      this.action="Cancelar"
+      this.action="Cancel"
       this.postulating=true
       this.add_application()
       this.add_notification_to_company()

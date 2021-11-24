@@ -1,5 +1,5 @@
 <div>
-  <h1>Proyecto:</h1>
+  <h1>Project:</h1>
   <h1 class="name">{{title_project}}</h1>
   <mat-grid-list cols="4"rowHeight="4pc" >
 
@@ -10,6 +10,7 @@
       <p>
         {{description_project}}
       </p>
+      <a mat-raised-button [href]="linkGithub">Github</a>
     </mat-grid-tile>
   </mat-grid-list>
 
@@ -17,17 +18,27 @@
     <mat-grid-tile colspan="2" *ngFor="let evidence of evidences; let i = index">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>{{evidence.title_evidence}}</mat-card-title>
+          <mat-card-title>{{evidence.titleEvidence}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          {{evidence.description_evidence}}
+          {{evidence.descriptionEvidence}}
         </mat-card-content>
         <div class="img_card">
-          <img src="{{evidence.img_evidence}}" width="100%" height="100%">
+          <img src="{{evidence.imgEvidence}}" width="100%" height="100%">
         </div>
 
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+<style>
+  .example-card {
+    max-width: 460px;
+    min-height: 220px;
+  }
+  .img_card{
+    width: 320px ;
+    height: 200px;
+  }
+</style>
 

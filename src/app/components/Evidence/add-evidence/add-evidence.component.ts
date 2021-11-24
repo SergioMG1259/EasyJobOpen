@@ -19,28 +19,18 @@ export class AddEvidenceComponent implements OnInit {
     this.description_add=""
     this.id_project=data
   }
-  add(id_evidence:number){
+  add(){
     const data={
-      id:id_evidence,
-      title_evidence:this.title_add,
-      description_evidence:this.description_add,
-      img_evidence:this.img_add,
-      id_project:this.id_project
+      titleEvidence:this.title_add,
+      descriptionEvidence:this.description_add,
+      imgEvidence:this.img_add,
     }
-    this.evidenceservices.add_evidence(data).subscribe(response=>{
+    this.evidenceservices.add_evidence(this.id_project,data).subscribe(response=>{
       console.log(response)
     })
   }
   add_evidence(){
-    let all_evidences:any
-    let id_evidence=1
-    this.evidenceservices.getAll().subscribe(response=>{
-      all_evidences=response
-      if(all_evidences.length>0){
-        id_evidence=all_evidences[all_evidences.length-1].id+1
-      }
-      this.add(id_evidence)
-    })
+      this.add()
   }
 
   ngOnInit(): void {

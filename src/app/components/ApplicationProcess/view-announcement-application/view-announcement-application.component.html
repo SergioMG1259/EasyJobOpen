@@ -1,5 +1,5 @@
 <div>
-  <h1>Anuncio</h1>
+  <h1>Announcement</h1>
   <mat-grid-list cols="1" >
     <div class="announcement">
       <h2>{{title_announcement}}</h2>
@@ -16,11 +16,14 @@
     <p>
       {{description_announcement}}
     </p>
-    <button mat-raised-button (click)="postulate()">{{action}}</button>
+    <button mat-raised-button (click)="postulate()" [ngClass]="{'not-visible':accepted_bool==true}">{{action}}</button>
   </mat-grid-list>
 </div>
 <style>
   .announcement{
     text-align: center;
+  }
+  .not-visible{
+    display: none;
   }
 </style>

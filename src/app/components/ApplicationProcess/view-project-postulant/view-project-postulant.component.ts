@@ -16,6 +16,7 @@ export class ViewProjectPostulantComponent implements OnInit {
   img_project:string
   description_project:string
   evidences:any
+  linkGithub:string
   constructor(private route:ActivatedRoute,private router:Router,private projectservices:ProjectsServices,
               private evidenceservices:EvidenceServices) {
     this.id_project=0
@@ -23,19 +24,21 @@ export class ViewProjectPostulantComponent implements OnInit {
     this.img_project=""
     this.description_project=""
     this.evidences=[]
+    this.linkGithub=""
   }
   get_project(){
     this.projectservices.getById(this.id_project).subscribe(response=>{
       let data:any
       data=response
       this.title_project=data.title
-      this.img_project=data.img_project
+      this.img_project=data.imgProject
       this.description_project=data.description
+      this.linkGithub=data.linkToGithub
     })
   }
   get_evidences_by_project(){
     this.evidenceservices.get_by_project(this.id_project).subscribe(response=>{
-      this.evidences=response
+      this.evidences=response.content
     })
   }
   ngOnInit(): void {

@@ -1,9 +1,9 @@
 export interface Notification{
   "id":number
-  "id_company":number
-  "id_postulant":number
-  "id_announcement":number
-  "title_announcement":string
+  "companyId":number
+  "postulantId":number
+  "announcementId":number
+  "titleAnnouncement":string
   "type":string
   "feedback":string
 }

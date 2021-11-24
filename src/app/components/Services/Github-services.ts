@@ -4,18 +4,14 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import{throwError} from "rxjs";
-import {Company} from "../Company/model/company";
+import {Evidence} from "../Evidence/model/evidence";
 import {catchError} from "rxjs/operators";
 import {retry} from "rxjs/operators";
-import {Postulant} from "../Postulant/model/postulant";
-
 @Injectable({
   providedIn:'root'
 })
-export class CompanyServices{
-  //basePath = 'http://localhost:3000/Companies';
-  //basePath = 'http://localhost:8105/api/v1/companies';
-  basePath = 'https://easyjobsbackend.herokuapp.com/api/v1/companies';
+export class GithubServices {
+  basePath='https://api.github.com';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,6 +20,7 @@ export class CompanyServices{
 
   constructor(private http: HttpClient) {
   }
+
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // Default error handling
@@ -36,26 +33,8 @@ export class CompanyServices{
     }
     return throwError('Something happened with request, please try again later');
   }
-  get_company_by_id(id:number){
-    return this.http.get<any>(`${this.basePath}/${id}`, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError));
-  }
-  edit_company(id:number,data:any){
-    return this.http.put<Company>(`${this.basePath}/${id}`,data,this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError));
-  }
-  signIn(data:any){
-    return this.http.post<Company>(`${this.basePath}/auth/sign-in`,data,this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError));
-  }
-  register(data:any){
-    return this.http.post<Company>(`${this.basePath}`,data,this.httpOptions)
+  Get_repositories_by_username(name:string){
+    return this.http.get<any>(`${this.basePath}/users/${name}/repos`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

@@ -1,0 +1,31 @@
+<mat-dialog-content class="contain">
+  <h1>Editar especialidad y experiencia</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>Especialidades</mat-label>
+    <mat-select [(value)]="specialty_selected">
+      <mat-option *ngFor="let specialty of specialties" [value]="specialty">
+        {{specialty}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Experiencia</mat-label>
+    <mat-select [(value)]="experiences_selected">
+      <mat-option *ngFor="let experience of experiences" [value]="experience">
+        {{experience}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>Cerrar</button>
+  <button mat-raised-button mat-dialog-close (click)="edit_specialty()">Editar</button>
+  <button mat-raised-button mat-dialog-close (click)="delete_specialty()">Eliminar</button>
+</mat-dialog-actions>
+<style>
+  .contain{
+    width: 250px;
+  }
+</style>

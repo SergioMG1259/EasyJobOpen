@@ -12,7 +12,9 @@ import {retry} from "rxjs/operators";
   providedIn:'root'
 })
 export class EvidenceServices {
-  basePath = 'http://localhost:3000/Evidences';
+  //basePath = 'http://localhost:3000/Evidences';
+  //basePath = 'http://localhost:8105/api/v1/evidences';
+  basePath = 'https://easyjobsbackend.herokuapp.com/api/v1/evidences';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -49,20 +51,20 @@ export class EvidenceServices {
         catchError(this.handleError));
   }
   get_by_project(id:number){
-    return this.http.get<any>(`${this.basePath}/?id_project=${id}`, this.httpOptions)
+    return this.http.get<any>(`${this.basePath}/project/${id}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
   }
   edit_evidence(id:number,data:any){
-    return this.http.patch<Evidence>(`${this.basePath}/${id}`,data,this.httpOptions)
+    return this.http.put<Evidence>(`${this.basePath}/${id}`,data,this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
   }
 
-  add_evidence(item:Evidence){
-    return this.http.post<Evidence>(this.basePath, JSON.stringify(item), this.httpOptions)
+  add_evidence(id:number,item:any){
+    return this.http.post<Evidence>(`${this.basePath}/project/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

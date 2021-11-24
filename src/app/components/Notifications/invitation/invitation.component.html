@@ -1,0 +1,43 @@
+<mat-dialog-content class="contain">
+  <h1>Mis anuncios</h1>
+  <div class="scroll">
+    <div *ngFor="let announcement of announcements; let i = index">
+      <mat-card class="card-an" [ngClass]="{'not-visible':announcement.visible==false}">
+        <mat-card-title>{{announcement.title}}</mat-card-title>
+          {{announcement.requiredSpecialty+" | "+announcement.requiredExperience}}
+          <div>
+            {{announcement.date}}
+          </div>
+        <div>
+            <button mat-raised-button (click)="send_invitation(announcement.id,announcement.title)">Invitar</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+</mat-dialog-actions>
+<style>
+  .contain{
+    width: 360px;
+  }
+  .scroll{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-y: scroll;
+    min-width: 320px;
+  }
+  .input-container{
+    min-width: 200px;
+    max-width: 500px;
+    display: flex;
+  }
+  .card-an{
+    margin-bottom: 20px;
+    border: solid 1px purple;
+    border-radius: 10px;
+    min-width: 300px;
+  }
+</style>
+

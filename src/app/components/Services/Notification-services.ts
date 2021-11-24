@@ -12,7 +12,9 @@ import {retry} from "rxjs/operators";
   providedIn:'root'
 })
 export class NotificationServices {
-  basePath = 'http://localhost:3000/Notifications';
+  //basePath = 'http://localhost:3000/Notifications';
+  //basePath = 'http://localhost:8105/api/v1/notifications'
+  basePath = 'https://easyjobsbackend.herokuapp.com/api/v1/notifications';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -49,13 +51,13 @@ export class NotificationServices {
         catchError(this.handleError));
   }
   get_by_company(idown:number){
-    return this.http.get<any>(`${this.basePath}/?id_company=${idown}&type=new-postulant`, this.httpOptions)
+    return this.http.get<any>(`${this.basePath}/company/${idown}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
   }
   get_by_postulants(idown:number){
-    return this.http.get<any>(`${this.basePath}/?id_postulant=${idown}&type=declined&type=accepted`, this.httpOptions)
+    return this.http.get<any>(`${this.basePath}/postulant/${idown}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
@@ -67,8 +69,8 @@ export class NotificationServices {
         catchError(this.handleError));
   }
 
-  add_notification(item:Notification){
-    return this.http.post<Notification>(this.basePath, JSON.stringify(item), this.httpOptions)
+  add_notification(companyId:number,announcementId:number,postulantId:number,item:any){
+    return this.http.post<Notification>(`${this.basePath}/company/${companyId}/announcement/${announcementId}/postulant/${postulantId}`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

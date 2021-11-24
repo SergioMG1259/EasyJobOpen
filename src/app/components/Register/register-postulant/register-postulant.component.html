@@ -1,0 +1,26 @@
+<mat-grid-list cols="7" rowHeight="60rem">
+  <mat-grid-tile colspan="2"></mat-grid-tile>
+  <mat-grid-tile colspan="3">
+    <div class="formulario">
+      <h2>EasyJobs</h2>
+      <h3>Register Postulant</h3>
+        <h5>Name</h5>
+        <input matInput type="text"  [(ngModel)]="name" />
+        <h5>Last Name</h5>
+        <input matInput type="text"  [(ngModel)]="lastName" />
+        <h5>GithubName</h5>
+        <input matInput type="text"  [(ngModel)]="nameGithub" />
+        <h5>Email</h5>
+        <input matInput type="text"  [(ngModel)]="email" />
+        <h5>Password</h5>
+        <input matInput type="password"  [(ngModel)]="password" />
+        <h5>Description</h5>
+        <input matInput type="text"  [(ngModel)]="description" />
+        <h5>Profile Picture</h5>
+        <input matInput type="text"  [(ngModel)]="profilePicture" />
+      <button mat-raised-button color="primary" (click)="register()">Register</button>
+      <button mat-raised-button color="primary" (click)="signIn()">Sign in</button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2"></mat-grid-tile>
+</mat-grid-list>

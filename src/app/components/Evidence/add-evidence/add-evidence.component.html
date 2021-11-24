@@ -1,16 +1,16 @@
 <mat-dialog-content class="contain">
-  <h1>Agregar evidencia</h1>
-  <h3>Titulo:</h3>
+  <h1>Add evidence</h1>
+  <h3>Title:</h3>
   <input matInput type="text"  [(ngModel)]="title_add" />
-  <h3>Imagen:</h3>
+  <h3>Image:</h3>
   <input matInput type="text"  [(ngModel)]="img_add" />
-  <h3>Descripción:</h3>
+  <h3>Description:</h3>
   <textarea matInput  [(ngModel)]="description_add"></textarea>
 
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button  mat-dialog-close>Cerrar</button>
-  <button mat-dialog-close (click)="add_evidence()">Agregar</button>
+  <button mat-button mat-dialog-close color="warn">Close</button>
+  <button mat-button mat-dialog-close (click)="add_evidence()">Add</button>
 </mat-dialog-actions>
 <style>
   .contain{

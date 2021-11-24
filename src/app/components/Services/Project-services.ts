@@ -5,6 +5,7 @@ import {HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import{throwError} from "rxjs";
 import {Project} from "../Project/model/project";
+import {SaveProject} from "../Project/model/saveProject";
 import {catchError} from "rxjs/operators";
 import {retry} from "rxjs/operators";
 
@@ -12,7 +13,9 @@ import {retry} from "rxjs/operators";
   providedIn:'root'
 })
 export class ProjectsServices {
-  basePath = 'http://localhost:3000/Projects';
+  //basePath = 'http://localhost:3000/Projects';
+  //basePath = 'http://localhost:8105/api/v1/projects';
+  basePath = 'https://easyjobsbackend.herokuapp.com/api/v1/projects';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -49,27 +52,19 @@ export class ProjectsServices {
         catchError(this.handleError));
   }
   getByOwner(idown:number){
-    return this.http.get<any>(`${this.basePath}/?id_postulant=${idown}`, this.httpOptions)
+    return this.http.get<any>(`${this.basePath}/postulant/${idown}`, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
   }
   setproyect(id:number,data:any){
-    return this.http.patch<Project>(`${this.basePath}/${id}`,data,this.httpOptions)
+    return this.http.put<Project>(`${this.basePath}/${id}`,data,this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
   }
-  returnId_for_Add(){
-    /*  item:Project  return this.http.post<Project>(`${this.basePath}`, JSON.stringify(item),this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError));*/
-    return this.http.get<Project[]>(`${this.basePath}?_sort=id&_order=desc}`, this.httpOptions)
-
-  }
-  AddProject(item:Project){
-    return this.http.post<Project>(this.basePath, JSON.stringify(item), this.httpOptions)
+  AddProject(idown:number,item:any){
+    return this.http.post<Project>(`${this.basePath}/postulant/${idown}`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

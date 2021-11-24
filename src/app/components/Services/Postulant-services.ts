@@ -12,7 +12,9 @@ import {retry} from "rxjs/operators";
   providedIn:'root'
 })
 export class PostulantServices {
-  basePath = 'http://localhost:3000/Postulants';
+  //basePath = 'http://localhost:3000/Postulants';
+  //basePath = 'http://localhost:8105/api/v1/postulants';
+  basePath = 'https://easyjobsbackend.herokuapp.com/api/v1/postulants';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -36,7 +38,7 @@ export class PostulantServices {
   }
 
   getAll(){
-    return this.http.get<Postulant[]>(this.basePath, this.httpOptions)
+    return this.http.get<any>(this.basePath, this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));
@@ -49,7 +51,19 @@ export class PostulantServices {
         catchError(this.handleError));
   }
   editProfile(id:number,data:any){
-    return this.http.patch<Postulant>(`${this.basePath}/${id}`,data,this.httpOptions)
+    return this.http.put<Postulant>(`${this.basePath}/${id}`,data,this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+  signIn(data:any){
+    return this.http.post<Postulant>(`${this.basePath}/auth/sign-in`,data,this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError));
+  }
+  register(data:any){
+    return this.http.post<Postulant>(`${this.basePath}`,data,this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

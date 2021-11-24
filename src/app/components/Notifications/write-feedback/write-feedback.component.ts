@@ -24,7 +24,7 @@ export class WriteFeedbackComponent implements OnInit {
   private notificationservices:NotificationServices,private applicationservices:ApplicationServices) {
     this.feedback=""
     this.id_postulant=data.id_postulant
-    this.id_company=data.data_announcement.id_company
+    this.id_company=data.data_announcement.companyId
     this.id_announcement=data.data_announcement.id
     this.title_announcement=data.data_announcement.title
   }
@@ -32,9 +32,10 @@ export class WriteFeedbackComponent implements OnInit {
     let id_delete_application_declined=0
     let applications_announcement:any
     this.applicationservices.get_applications_by_announcement(this.id_announcement).subscribe(response=>{
-      applications_announcement=response
+      applications_announcement=response.content
+      console.log(response.content)
       for(let i=0;i<applications_announcement.length;i++){
-        if(applications_announcement[i].id_postulant==this.id_postulant){
+        if(applications_announcement[i].postulantId==this.id_postulant){
           id_delete_application_declined=applications_announcement[i].id
         }
       }
@@ -44,28 +45,24 @@ export class WriteFeedbackComponent implements OnInit {
     })
   }
   add_feedback(){
-    let notifications:any
+    /*let notifications:any
     let id_add=1
     this.notificationservices.getAll().subscribe(response=>{
       notifications=response
       if(notifications.length>0){
         id_add=notifications[notifications.length-1].id+1
-      }
-      this.add(id_add)
+      }*/
+      this.add()
       this.delete_declinet_application()
-    })
+    //})
   }
-  add(id:number){
+  add(){
     const data={
-      id:id,
-      id_company:this.id_company,
-      id_postulant:this.id_postulant,
-      id_announcement:this.id_announcement,
-      title_announcement:this.title_announcement,
+      titleAnnouncement:this.title_announcement,
       type:"declined",
       feedback:this.feedback
     }
-    this.notificationservices.add_notification(data).subscribe(response=>{
+    this.notificationservices.add_notification(this.id_company,this.id_announcement,this.id_postulant,data).subscribe(response=>{
 
     })
   }

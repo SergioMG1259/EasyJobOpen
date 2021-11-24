@@ -1,9 +1,10 @@
 <mat-dialog-content class="contain">
+  <h1>Write feedback:</h1>
   <textarea matInput  [(ngModel)]="feedback"></textarea>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button  mat-dialog-close>Cerrar</button>
-  <button mat-dialog-close (click)="add_feedback()">Enviar</button>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button mat-dialog-close (click)="add_feedback()">Send</button>
 </mat-dialog-actions>
 <style>
   .contain{

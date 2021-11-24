@@ -1,0 +1,25 @@
+.mat-grid-list {
+  background-image: linear-gradient(to right bottom, #051937, #38245a, #77216c, #b70767, #eb124b);
+}
+
+.formulario {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 90%;
+}
+
+.formulario h2 {
+  text-align: center;
+}
+
+.formulario h3 {
+  text-align: center;
+}
+
+.formulario .mat-form-field {
+  margin-bottom: 20px;
+}
+
+button {
+  margin-bottom: 30px;
+}
